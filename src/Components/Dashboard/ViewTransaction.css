@@ -1,0 +1,27 @@
+.transaction-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1.5px solid rgb(8, 8, 8); /* Add border style to the table */
+  }
+  
+  .transaction-table th,
+  .transaction-table td {
+    border: 1.5px solid rgb(12, 11, 11); /* Adjust the border thickness as desired */
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .transaction-table th {
+    background-color: #f0f0f0;
+  }
+  
+  .view-transaction h2 {
+    text-align: center;
+    border: 1.5px solid rgb(8, 8, 8);
+    padding: 20px;
+    border-radius: 4px;
+  }
+  

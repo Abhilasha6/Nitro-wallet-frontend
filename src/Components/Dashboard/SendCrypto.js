@@ -9,7 +9,26 @@ const SendCrypto = () => {
 
   const handleSend = () => {
     setShowPopup(true);
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(transaction)
+    };
+  
+    fetch('https://wcm4919je4.execute-api.eu-west-1.amazonaws.com/default', requestOptions)
+      .then(response => {
+        if (response.ok) {
+          console.log('Transaction sent successfully');
+          setShowPopup(false);
+        } else {
+          console.error('Failed to send transaction');
+        }
+      })
+      .catch(error => {
+        console.error('Error sending transaction:', error);
+      });
   };
+  
 
   const handleConfirm = () => {
     // Perform the send crypto operation

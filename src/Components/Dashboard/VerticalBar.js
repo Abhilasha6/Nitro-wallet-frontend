@@ -21,13 +21,15 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
         {/* Replace with your send logo */}
         <img src={SEND} alt="Send Logo" />
       </div>
-      <div
+
+      {/* <div
         className={`logo ${selectedOption === 'receive' ? 'active' : ''}`}
         onClick={() => onSelectOption('receive')}
       >
-        {/* Replace with your receive logo */}
+         Replace with your receive logo 
         <img src="" alt="Receive Logo" />
-      </div>
+      </div> */}
+
     </div>
   );
 };

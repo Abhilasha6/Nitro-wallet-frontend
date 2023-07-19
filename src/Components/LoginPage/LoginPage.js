@@ -33,8 +33,11 @@ const LoginPage = ({ onPageChange }) => {
       <img src={FIL}  />
       </div>
       <div className="wallet-box">
-        <h1 className="wallet-name">Nitro Wallet</h1>
-        <p className="tagline">Secured by Nitro Enclaves and AWS KMS</p>
+        <br></br>
+        <div>
+        <h1 className="wallet-name">FIL VAULT</h1>
+        <p className="tagline">-Secured by Nitro Enclaves and AWS KMS</p>
+        </div>
       </div>
 
       <div className="login-box">

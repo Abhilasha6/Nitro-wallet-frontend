@@ -1,0 +1,5 @@
+export {default as FIL} from './fil.png'
+export {default as TRANSACTION} from './transaction.png'
+export {default as SEND} from './send.png'
+export {default as RECEIVE} from './receive.png'
+export {default as LOGO} from './logo.png'

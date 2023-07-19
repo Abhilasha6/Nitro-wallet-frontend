@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
 import getUsers from '../../userUtils';
+import { FIL } from '../../assets/Images';
 
 const LoginPage = ({ onPageChange }) => {
   const [email, setEmail] = useState('');
@@ -28,6 +29,9 @@ const LoginPage = ({ onPageChange }) => {
 
   return (
     <div className="login-page">
+      <div className="fil-logo">
+      <img src={FIL}  />
+      </div>
       <div className="wallet-box">
         <h1 className="wallet-name">Nitro Wallet</h1>
         <p className="tagline">Secured by Nitro Enclaves and AWS KMS</p>
@@ -56,7 +60,7 @@ const LoginPage = ({ onPageChange }) => {
         {error && <p className="error-message">{error}</p>}
       </div>
       <p className="create-account">
-        Don't have an account?{' '} <button onClick={handleCreateAccount}>Create Account</button>
+        Don't have an account?{' '} <button onClick={handleCreateAccount} className="create-button">Create Account</button>
       </p>
     </div>
   );

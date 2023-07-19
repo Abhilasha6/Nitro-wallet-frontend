@@ -4,6 +4,7 @@ import VerticalBar from './VerticalBar';
 import ViewTransaction from './ViewTransaction';
 import SendCrypto from './SendCrypto';
 import ReceiveCrypto from './ReceiveCrypto';
+import { FIL } from '../../assets/Images';
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState('history');
@@ -29,6 +30,9 @@ const Dashboard = () => {
         selectedOption={selectedOption}
         onSelectOption={setSelectedOption}
       />
+      <div className="fid-logo">
+      <img src={FIL}  />
+      </div>
       <div className="center-view">
         <h2>User Public ID: {publicId}</h2>
         <h3>Account Balance: {accountBalance}</h3>

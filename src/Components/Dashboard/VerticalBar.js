@@ -1,4 +1,5 @@
 import React from 'react';
+import { SEND, TRANSACTION } from '../../assets/Images';
 import './VerticalBar.css';
 
 
@@ -10,7 +11,7 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
         onClick={() => onSelectOption('history')}
       >
         {/* Replace with your history logo */}
-        <img src={require('../../assets/transaction.png').default} alt="History Logo" />
+        <img src={TRANSACTION} alt="History Logo" />
 
       </div>
       <div
@@ -18,14 +19,14 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
         onClick={() => onSelectOption('send')}
       >
         {/* Replace with your send logo */}
-        <img src={require('../../assets/send.png').deafult} alt="Send Logo" />
+        <img src={SEND} alt="Send Logo" />
       </div>
       <div
         className={`logo ${selectedOption === 'receive' ? 'active' : ''}`}
         onClick={() => onSelectOption('receive')}
       >
         {/* Replace with your receive logo */}
-        <img src={require('../../assets/receive.png').deafult} alt="Receive Logo" />
+        <img src="" alt="Receive Logo" />
       </div>
     </div>
   );

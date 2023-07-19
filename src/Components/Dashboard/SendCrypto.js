@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
-import './SendCrypto.css'
+import ConfirmationPopup from './ConfirmationPopup';
+import './SendCrypto.css';
 
 const SendCrypto = () => {
   const [destinationAddress, setDestinationAddress] = useState('');
   const [amount, setAmount] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSend = () => {
-    // Implement the send crypto functionality
-    // You can use the destinationAddress and amount values here
+    setShowPopup(true);
+  };
+
+  const handleConfirm = () => {
+    // Perform the send crypto operation
     console.log('Sending crypto...');
+    setShowPopup(false);
+  };
+
+  const handleCancel = () => {
+    setShowPopup(false);
+  };
+
+  const transaction = {
+    value: amount,
+    to: destinationAddress,
+    nonce: 0,
+    type: 2,
+    chainId: 4,
+    gas: 100000,
+    maxFeePerGas: 100000000000,
+    maxPriorityFeePerGas: 3000000000
   };
 
   return (
@@ -31,6 +52,14 @@ const SendCrypto = () => {
         />
       </div>
       <button onClick={handleSend}>Send</button>
+
+      {showPopup && (
+        <ConfirmationPopup
+          transaction={transaction}
+          onCancel={handleCancel}
+          onConfirm={handleConfirm}
+        />
+      )}
     </div>
   );
 };

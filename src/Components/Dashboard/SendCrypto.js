@@ -59,7 +59,9 @@ const SendCrypto = () => {
       </div>
       <button className="button-send"onClick={handleSend}>Send</button>
       <h2>API Response:</h2>
-        <pre>{JSON.stringify(response, null, 2)}</pre>
+              <p style={{ whiteSpace: 'pre-wrap', maxHeight: '200px', overflowY: 'auto' }}>
+        {JSON.stringify(response, null, 2)}
+      </p>
 
       {showPopup && (
         <div className="modal-overlay">

@@ -8,24 +8,28 @@ const SendCrypto = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleSend = () => {
-    setShowPopup(true);
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(transaction)
+    const apiUrl = 'https://u67h5mobnf.execute-api.eu-west-1.amazonaws.com/dev/nitro'; // Replace this with your actual API URL
+
+    const requestData = {
+      operation: 'sign_transaction',
+      transaction_payload: {
+        value: 0.01,
+        to: '0xa5D3241A1591061F2a4bB69CA0215F66520E67cf',
+        nonce: 0,
+        type: 2,
+        chainId: 4,
+        gas: 100000,
+        maxFeePerGas: 100000000000,
+        maxPriorityFeePerGas: 3000000000,
+      },
     };
-  
-    fetch('https://wcm4919je4.execute-api.eu-west-1.amazonaws.com/default', requestOptions)
-      .then(response => {
-        if (response.ok) {
-          console.log('Transaction sent successfully');
-          setShowPopup(false);
-        } else {
-          console.error('Failed to send transaction');
-        }
+
+    axios.post(apiUrl, requestData)
+      .then((response) => {
+        setResponse(response.data);
       })
-      .catch(error => {
-        console.error('Error sending transaction:', error);
+      .catch((error) => {
+        console.error('Error:', error);
       });
   };
   

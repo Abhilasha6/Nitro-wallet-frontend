@@ -1,40 +1,64 @@
+.send-crypto-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  padding: 20px;
+  background-color: #eeeff0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
 
-.send-crypto {
-    text-align: center;
-    border: 1.5px solid rgb(8, 8, 8);
-    padding: 20px;
-    border-radius: 4px;
-    background-color: #eeeff0;
-  }
-  
-  .send-crypto .input-fields {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    
-  }
-  
-  .send-crypto label {
-    margin-bottom: 5px;
-  }
-  
-  .send-crypto input {
-    padding: 8px;
-    margin-bottom: 10px;
-    width: 300px;
-  }
-  
-  .send-crypto button {
-    padding: 8px 16px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .send-crypto button:hover {
-    background-color: #0056b3;
-  }
-  
+.send-crypto-modal h2 {
+  margin-top: 0;
+}
+
+.send-crypto-modal .input-fields {
+  margin-bottom: 20px;
+}
+
+.send-crypto-modal label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.send-crypto-modal input {
+  display: block;
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.button-send {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-send:hover {
+  background-color: #4caf50;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmation-popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

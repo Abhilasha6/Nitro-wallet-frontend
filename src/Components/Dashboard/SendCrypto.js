@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import ConfirmationPopup from './ConfirmationPopup';
 import './SendCrypto.css';
+import axios from 'axios';
 
 const SendCrypto = () => {
   const [destinationAddress, setDestinationAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [inputData, setInputData] = useState('');
+  const [response, setResponse] = useState('');
 
   const handleSend = () => {
     const apiUrl = 'https://u67h5mobnf.execute-api.eu-west-1.amazonaws.com/dev/nitro'; // Replace this with your actual API URL
@@ -32,31 +35,11 @@ const SendCrypto = () => {
         console.error('Error:', error);
       });
   };
-  
 
-  const handleConfirm = () => {
-    // Perform the send crypto operation
-    console.log('Sending crypto...');
-    setShowPopup(false);
-  };
 
-  const handleCancel = () => {
-    setShowPopup(false);
-  };
-
-  const transaction = {
-    value: amount,
-    to: destinationAddress,
-    nonce: 0,
-    type: 2,
-    chainId: 4,
-    gas: 100000,
-    maxFeePerGas: 100000000000,
-    maxPriorityFeePerGas: 3000000000
-  };
 
   return (
-    <div className="send-crypto">
+    <div className="send-crypto-modal">
       <h2>Send Crypto</h2>
       <div className="input-fields">
         <label htmlFor="destination-address">Destination address:</label>
@@ -74,14 +57,20 @@ const SendCrypto = () => {
           onChange={(e) => setAmount(e.target.value)}
         />
       </div>
-      <button onClick={handleSend}>Send</button>
+      <button className="button-send"onClick={handleSend}>Send</button>
+      <h2>API Response:</h2>
+        <pre>{JSON.stringify(response, null, 2)}</pre>
 
       {showPopup && (
-        <ConfirmationPopup
-          transaction={transaction}
-          onCancel={handleCancel}
-          onConfirm={handleConfirm}
-        />
+        <div className="modal-overlay">
+          <div className="confirmation-popup">
+            <ConfirmationPopup
+              // response = {response}
+              // onCancel={handleCancel}
+              // onConfirm={handleConfirm}
+            />
+          </div>
+        </div>
       )}
     </div>
   );

@@ -29,6 +29,7 @@ const LoginPage = ({ onPageChange }) => {
 
   return (
     <div className="login-page">
+      
       <div className="fil-logo">
         <img src={FIL} />
       </div>
@@ -64,7 +65,7 @@ const LoginPage = ({ onPageChange }) => {
           {error && <p className="error-message">{error}</p>}
         </div>
         <div className="create-account">
-          Don't have an account?{" "}
+          <p className="tagline">Don't have an account?</p>
           <button onClick={handleCreateAccount} className="create-button">
             Create Account
           </button>

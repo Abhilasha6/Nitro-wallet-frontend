@@ -2,8 +2,10 @@
   display: flex;
   /* flex-direction: column; */
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: space-around;
+  height: 100%;
+  /* margin: 2vh; */
+
   background-color: #ffffff;
   position: relative;
 }
@@ -36,9 +38,9 @@
   .wallet-name {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5vh;
     text-align: center;
-    margin-top: 8vh;
+    margin-top: 10vh;
     justify-content: center;
     /* padding: 25px; */
   }
@@ -47,20 +49,21 @@
     font-size: 16px;
     /* margin-bottom: 20px; */
     text-align: center;
+    margin: 2vh 2vh;
+    justify-content: center;
   }
-
-
   
   .login-box {
     display: flex;
     flex-direction: column;
-    width: 375px;
-    padding: 40px;
+    width: 100%;
+    padding: 30px;
+    justify-content: center;
     background-color: #ffffff;
     border: 1px solid #cccccc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
   .field-name {
@@ -70,12 +73,12 @@
   }
   
   .input-field {
-    padding: 20px;
+    padding: 15px;
     font-size: 15px;
     border: 1px solid #cccccc;
     border-radius: 4px;
     margin-bottom: 30px;
-    width: 110%;
+    width: 114%;
   }
   
 
@@ -112,9 +115,16 @@
   margin-top: 10px;
 }
 
-.left-pane, .right-pane{
+/* .left-pane, .right-pane{
   display: flex;
   flex-direction: column;
-  margin: 25px 25px;
-  /* padding: 25px 25px; */
+  align-items: center;
+  justify-content: space-evenly;
+  justify-content: center;
+  margin: 25px 5px;
+  padding: 25px 25px;
+} */
+
+.right-pane{
+  margin-top: 5vh;
 }

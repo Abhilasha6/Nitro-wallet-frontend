@@ -29,7 +29,7 @@ const LoginPage = ({ onPageChange }) => {
 
   return (
     <div className="login-page">
-      
+
       <div className="fil-logo">
         <img src={FIL} />
       </div>
@@ -66,7 +66,7 @@ const LoginPage = ({ onPageChange }) => {
         </div>
         <div className="create-account">
           <p className="tagline">Don't have an account?</p>
-          <button onClick={handleCreateAccount} className="create-button">
+          <button disabled={true} onClick={handleCreateAccount} className="create-button">
             Create Account
           </button>
         </div>

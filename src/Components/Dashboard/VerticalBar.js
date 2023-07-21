@@ -26,10 +26,9 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
         className={`logo ${selectedOption === 'receive' ? 'active' : ''}`}
         onClick={() => onSelectOption('receive')}
       >
-         Replace with your receive logo 
+        {/* Replace with your receive logo 
         <img src="" alt="Receive Logo" />
       </div> */}
-
     </div>
   );
 };

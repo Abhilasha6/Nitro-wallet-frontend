@@ -1,9 +1,11 @@
   .login-page {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: space-around;
+  height: 100%;
+  /* margin: 2vh; */
+
   background-color: #ffffff;
   position: relative;
 }
@@ -21,7 +23,7 @@
   position: absolute;
   top: 1vh;
   left: 20px;
-  justify-content: center;
+  
   display: flex;
   align-items: center;
 }
@@ -29,35 +31,39 @@
 .fil-logo img {
   /* height: 40px; */
   margin-right: 10px;
+  /* margin-top: 1vh; */
 }
 
    
   .wallet-name {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    /* margin-bottom: 5vh; */
     text-align: center;
-margin:5%;
+    margin-top: 10vh;
+    justify-content: center;
+    /* padding: 25px; */
   }
   
   .tagline {
     font-size: 16px;
     margin-bottom: 20px;
     text-align: center;
+    /* margin: 1vh 1vh; */
+    justify-content: center;
   }
-
-
   
   .login-box {
     display: flex;
     flex-direction: column;
-    width: 375px;
-    padding: 40px;
+    width: 100%;
+    padding: 30px;
+    justify-content: center;
     background-color: #ffffff;
     border: 1px solid #cccccc;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
   .field-name {
@@ -67,12 +73,12 @@ margin:5%;
   }
   
   .input-field {
-    padding: 20px;
+    padding: 15px;
     font-size: 15px;
     border: 1px solid #cccccc;
     border-radius: 4px;
-    margin-bottom: 30px;
-    width: 110%;
+    margin-bottom: 25px;
+    width: 114%;
   }
   
 
@@ -92,11 +98,15 @@ margin:5%;
 .create-account {
   font-size: 14px;
   color: black;
-  
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 .create-button{
   font-size: 14px;
+  margin: 5px;
+  background-color: #49a00fac;
   color: black;
   font-weight: bold;
 }
@@ -106,9 +116,17 @@ margin:5%;
   font-size: 14px;
   margin-top: 10px;
 }
-  
 
-.wallet-box{
+/* .left-pane, .right-pane{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  justify-content: center;
+  margin: 25px 5px;
+  padding: 25px 25px;
+} */
+
+.right-pane{
   margin-top: 5vh;
-  /* margin:auto 7% auto 7%; */
 }

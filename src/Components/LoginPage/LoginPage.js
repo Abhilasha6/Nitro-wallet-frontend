@@ -29,9 +29,13 @@ const LoginPage = ({ onPageChange }) => {
 
   return (
     <div className="login-page">
+      
+      <img src="./assets/left-pic.svg"></img>
+
       <div className="fil-logo">
       <img src={FIL}  />
       </div>
+
       <div className="wallet-box">
         <br></br>
         <div>

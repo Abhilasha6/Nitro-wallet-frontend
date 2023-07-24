@@ -20,7 +20,7 @@
 
 .fid-logo{
   position: absolute;
-  top: 0;
+  top: 1vh;
   left: 20px;
   
   display: flex;
@@ -28,9 +28,6 @@
   z-index: 10;
 }
 
-
-
-  
 .center-view {
   display: flex;
   flex-direction: column;
@@ -40,10 +37,14 @@
 
 .center-view h2 {
   font-size: 24px;
-  margin-bottom: 16px;
+  margin-top: 3% auto 0 auto;
 }
 
 .center-view h3 {
   font-size: 18px;
-  margin-bottom: 24px;
+  margin:0 auto 2% auto;
+}
+
+.crypto-button{
+  color: white;
 }

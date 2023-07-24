@@ -5,6 +5,7 @@ import ViewTransaction from './ViewTransaction';
 import SendCrypto from './SendCrypto';
 import ReceiveCrypto from './ReceiveCrypto';
 import { FIL } from '../../assets/Images';
+import { Navigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState('history');
@@ -36,6 +37,9 @@ const Dashboard = () => {
       <div className="center-view">
         <h2>User Public ID: {publicId}</h2>
         <h3>Account Balance: {accountBalance}</h3>
+
+        <button type="button" className='crypto-button' onClick={()=>{setSelectedOption('send')}}>Send Crypto</button>
+
         {renderView()}
       </div>
     </div>

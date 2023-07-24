@@ -94,6 +94,7 @@
 
 .login-button {
   padding: 10px 20px;
+  height: fit-content ;
   font-size: 17px;
   background-color: #4AA00F;
   color: white;

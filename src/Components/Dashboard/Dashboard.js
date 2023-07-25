@@ -14,10 +14,12 @@ const Dashboard = () => {
 
   const renderView = () => {
     switch (selectedOption) {
+      // case 'history':
+      //   return <ViewTransaction />;
       case 'send':
         return <SendCrypto />;
-      case 'receive':
-        return <ReceiveCrypto />;
+      // case 'receive':
+      //   return <ReceiveCrypto />;
       default:
         return null;
     }

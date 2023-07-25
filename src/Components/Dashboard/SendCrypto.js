@@ -16,8 +16,8 @@ const SendCrypto = () => {
     const requestData = {
       operation: 'sign_transaction',
       transaction_payload: {
-        value: 0.01,
-        to: '0xa5D3241A1591061F2a4bB69CA0215F66520E67cf',
+        value: amount,
+        to: destinationAddress,
         nonce: 0,
         type: 2,
         chainId: 4,

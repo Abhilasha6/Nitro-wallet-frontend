@@ -28,6 +28,7 @@ const ViewTransaction = () => {
       value: 0.8,
       timestamp: '2022-03-03',
     },
+    
   ];
 
   return (

@@ -37,7 +37,6 @@ const SendCrypto = () => {
   };
 
 
-
   return (
     <div className="send-crypto-modal">
       <h2>Send Crypto</h2>
@@ -57,7 +56,7 @@ const SendCrypto = () => {
           onChange={(e) => setAmount(e.target.value)}
         />
       </div>
-      <button className="button-send"onClick={handleSend}>Send</button>
+      <button className="button-send" onClick={handleSend}>Send</button>
       <h2>API Response:</h2>
               <p style={{ whiteSpace: 'pre-wrap', maxHeight: '200px', overflowY: 'auto' }}>
         {JSON.stringify(response, null, 2)}

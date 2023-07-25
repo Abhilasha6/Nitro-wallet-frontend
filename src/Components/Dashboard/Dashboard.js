@@ -14,8 +14,6 @@ const Dashboard = () => {
 
   const renderView = () => {
     switch (selectedOption) {
-      case 'history':
-        return <ViewTransaction />;
       case 'send':
         return <SendCrypto />;
       case 'receive':
@@ -39,7 +37,7 @@ const Dashboard = () => {
         <h3>Account Balance: {accountBalance}</h3>
 
         <button type="button" className='crypto-button' onClick={()=>{setSelectedOption('send')}}>Send Crypto</button>
-
+        <ViewTransaction />
         {renderView()}
       </div>
     </div>

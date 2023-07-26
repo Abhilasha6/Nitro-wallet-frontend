@@ -4,7 +4,7 @@ import './SendCrypto.css';
 import axios from 'axios';
 
 const SendCrypto = ({onClose}) => {
-  const [senderAddress, setSenderAddress] = useState('');
+  const [senderAddress, setSenderAddress] = useState('0xc0ffee254729296a45a3885639AC7E10F9d54979');
   const [destinationAddress, setDestinationAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [showPopup, setShowPopup] = useState('');
@@ -74,17 +74,7 @@ const SendCrypto = ({onClose}) => {
       <button type="submit" onClick={handleClosePopup}>❌</button>
       </div>
       
-      <hr
-        style={{
-          background: '#4AA00F',
-          color: '#4AA00F',
-          borderColor: '#4AA00F',
-          height: '3px',
-          // width:'110%',
-          // left: '0'
-        }}
-      />
-      <br></br>
+      <hr/>
       <div className="input-fields">
 
       <label htmlFor="destination-address">Sender address:</label>
@@ -111,18 +101,17 @@ const SendCrypto = ({onClose}) => {
         />
       </div>
       <button className="button-send" onClick={handleSend}>Send</button>
-      {/* <button type="submit" onClick={handsleCancel}>Cancel❌</button> */}
       <br />
       <br></br>
+      <div className='response'>
       <h2>API Response:</h2>
-              <p style={{ whiteSpace: 'pre-wrap', maxHeight: '200px', overflowY: 'auto' }}>
+        <p style={{ whiteSpace: 'pre-wrap', maxHeight: '200px', overflowY: 'auto' }}>
         {JSON.stringify(response, null, 2)}
       </p>
 
       {showPopup && (
         <div className="modal-overlay">
           <div className="confirmation-popup">
-          {/* <button onClick={handleClosePopup}>Close</button> */}
             <ConfirmationPopup
               // response = {response}
               // onCancel={handleCancel}
@@ -131,8 +120,7 @@ const SendCrypto = ({onClose}) => {
           </div>
         </div>
       )}
-      {/* <p style = {styles.Close} onClick = {() => handeModalChange("close")} >x</p>
-      </form> */}
+      </div>
     </div>
   );
 };

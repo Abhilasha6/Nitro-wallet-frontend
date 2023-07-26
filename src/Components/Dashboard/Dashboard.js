@@ -12,7 +12,7 @@ import { FIL } from "../../assets/Images";
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState("history");
   const [publicId, setPublicId] = useState("0xc0ffee254729296a45a3885639AC7E10F9d54979"); // Replace with actual user public ID
-  const [accountBalance, setAccountBalance] = useState("8.5"); // Replace with actual account balance
+  const [accountBalance, setAccountBalance] = useState("7.5"); // Replace with actual account balance
 
   const renderView = () => {
     switch (selectedOption) {

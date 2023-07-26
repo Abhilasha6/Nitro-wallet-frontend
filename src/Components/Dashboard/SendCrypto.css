@@ -7,7 +7,7 @@
   padding: 20px;
   background-color: #eeeff0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
+  /* z-index: 9999; */
 }
 
 .send-crypto-modal h2 {
@@ -15,7 +15,7 @@
 }
 
 .send-crypto-modal .input-fields {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 .send-crypto-modal label {
@@ -63,14 +63,14 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-
-/* hr .solid{
-  width:100vh;
-  height: 10px;
-  text-align:left;
-  margin-left:0;
-  border-top: 25px solid black;
-} */
+hr{
+  background: #4AA00F;
+          color: #4AA00F;
+          border: #4AA00F;
+          height: 3px;
+          /* // width:'110%';
+          // left: '0'; */
+}
 
 .title{
   display: flex;

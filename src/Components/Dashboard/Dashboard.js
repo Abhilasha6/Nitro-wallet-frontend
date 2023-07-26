@@ -19,7 +19,7 @@ const Dashboard = () => {
       // case 'history':
       //   return <ViewTransaction />;
       case "send":
-        return <SendCrypto />;
+        return <SendCrypto onClose={()=>{setSelectedOption("")}} />;
       // case 'receive':
       //   return <ReceiveCrypto />;
       default:

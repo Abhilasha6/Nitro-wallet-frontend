@@ -47,4 +47,41 @@
 
 .crypto-button{
   color: white;
+  background-color: #4AA00F;
+  margin-bottom: 2%;
+}
+
+.wallets button{
+  color: black;
+  background-color: rgb(174, 169, 169);
+  margin: 15px 15px;
+}
+
+header{
+  /* background-color: rgb(173, 173, 173); */
+  margin: 5% 5%;
+  width: 95vw;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-block-end: auto;
+}
+
+header nav a{
+  text-decoration: none;
+  margin-left: 5px;
+  justify-content: space-around;
+}
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 2%;
+  width: 100vh;
+}
+
+button{
+  background-color: white;
+  color: black;
 }

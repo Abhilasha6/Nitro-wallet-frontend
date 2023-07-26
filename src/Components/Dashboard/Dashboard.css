@@ -82,6 +82,9 @@ main{
   flex-direction: column;
   margin: 2%;
   width: 100vh;
+  text-align: center;
+  /* align-items: center; */
+  justify-content: space-between;
 }
 
 button{
@@ -94,6 +97,7 @@ button{
   margin-left: 15px;
 }
 
-main img{
+img{
   align-items: center;
+  justify-content: center;
 }

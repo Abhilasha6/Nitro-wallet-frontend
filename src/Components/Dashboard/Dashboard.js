@@ -63,8 +63,8 @@ const Dashboard = () => {
             <div class=" border-blue-500 p-4 relative flex flex-col items-center gap-2">
               <a href="">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-zKsVKrLYyTYtD4Sa6di4AQcticu-O5FnFVSiSm3_Q&s"
-                alt=""
+                src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                alt="eth"
                 class="h-8 w-8"
               />Ethereum
               </a>
@@ -74,8 +74,8 @@ const Dashboard = () => {
             <div class=" border-blue-500 p-4 flex flex-col items-center gap-2">
               <a href="">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-zKsVKrLYyTYtD4Sa6di4AQcticu-O5FnFVSiSm3_Q&s"
-                alt=""
+                src="https://seeklogo.com/images/R/ripple-xrp-logo-E97D62205B-seeklogo.com.png"
+                alt="ripple"
                 class="h-8 w-8"
               />Ripple
               </a>
@@ -85,8 +85,8 @@ const Dashboard = () => {
             <div class=" border-blue-500 p-4 flex flex-col items-center gap-2">
               <a href="">
               <img
-                src="https://w7.pngwing.com/pngs/368/176/png-transparent-ethereum-cryptocurrency-blockchain-bitcoin-logo-bitcoin-angle-triangle-logo.png"
-                alt=""
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-zKsVKrLYyTYtD4Sa6di4AQcticu-O5FnFVSiSm3_Q&s"
+                alt="bitcoin"
                 class="h-8 w-8"
               />Bitcoin
               </a>
@@ -95,17 +95,17 @@ const Dashboard = () => {
 
             <div class=" border-blue-500 p-4 flex flex-col items-center gap-2">
               <a href=""><img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-zKsVKrLYyTYtD4Sa6di4AQcticu-O5FnFVSiSm3_Q&s"
+                src="https://seeklogo.com/images/N/nft-logo-6202DDD5FF-seeklogo.com.png"
                 alt=""
                 class="h-8 w-8"
               />NFT
               </a>
             </div>
 
-            <div class=" border-blue-500 p-4 flex flex-col items-center gap-2">
+            <div class=" border-blue-500 p-4 flex flex-col items-center gap-2 justify-center">
               <a href="https://bitcoin.org/en/">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-zKsVKrLYyTYtD4Sa6di4AQcticu-O5FnFVSiSm3_Q&s"
+                src="https://www.citypng.com/public/uploads/preview/download-gold-token-medal-seal-illustration-png-11639415418bl6dsuicrt.png?v=2023051122"
                 alt=""
                 class="h-8 w-8"
               />Token
@@ -185,7 +185,7 @@ const Dashboard = () => {
         >
           Send Crypto
         </button>
-        <div >
+        <div className="trans">
         <ViewTransaction />
         </div>
         {renderView()}

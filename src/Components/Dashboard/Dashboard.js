@@ -11,8 +11,8 @@ import { FIL } from "../../assets/Images";
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState("history");
-  const [publicId, setPublicId] = useState("Your Public ID"); // Replace with actual user public ID
-  const [accountBalance, setAccountBalance] = useState(0); // Replace with actual account balance
+  const [publicId, setPublicId] = useState("0xc0ffee254729296a45a3885639AC7E10F9d54979"); // Replace with actual user public ID
+  const [accountBalance, setAccountBalance] = useState("8.5"); // Replace with actual account balance
 
   const renderView = () => {
     switch (selectedOption) {
@@ -58,10 +58,10 @@ const Dashboard = () => {
   </nav>
 </header> */}
 
-        <main class="ml-16 px-8">
+        <main className="ml-16 px-8">
           <div className="border-b-2 text-sm flex gap-4 justify-center border-gray-300">
             <div className=" border-blue-500 p-4 relative flex flex-col items-center gap-2">
-              <a href="">
+              <a href="#">
               <img
                 src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
                 alt="eth"
@@ -72,7 +72,7 @@ const Dashboard = () => {
             </div>
 
             <div className=" border-blue-500 p-4 flex flex-col items-center gap-2">
-              <a href="">
+              <a href="#">
               <img
                 src="https://seeklogo.com/images/R/ripple-xrp-logo-E97D62205B-seeklogo.com.png"
                 alt="ripple"
@@ -82,7 +82,7 @@ const Dashboard = () => {
              
             </div>
             <div className=" border-blue-500 p-4 flex flex-col items-center gap-2">
-              <a href="">
+              <a href="#">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-zKsVKrLYyTYtD4Sa6di4AQcticu-O5FnFVSiSm3_Q&s"
                 alt="bitcoin"
@@ -93,7 +93,7 @@ const Dashboard = () => {
             </div>
 
             <div className=" border-blue-500 p-4 flex flex-col items-center gap-2">
-              <a href=""><img
+              <a href="#"><img
                 src="https://seeklogo.com/images/N/nft-logo-6202DDD5FF-seeklogo.com.png"
                 alt=""
                 className="h-8 w-8"
@@ -102,7 +102,7 @@ const Dashboard = () => {
             </div>
 
             <div className=" border-blue-500 p-4 flex flex-col items-center gap-2 justify-center">
-              <a href="https://bitcoin.org/en/">
+              <a href="#">
               <img
                 src="https://www.citypng.com/public/uploads/preview/download-gold-token-medal-seal-illustration-png-11639415418bl6dsuicrt.png?v=2023051122"
                 alt=""

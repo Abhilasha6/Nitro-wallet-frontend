@@ -9,17 +9,17 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
       <div
         className={`logo ${selectedOption === 'history' ? 'active' : ''}`}
         onClick={() => onSelectOption('history')}
-      >
+      > 
         {/* Replace with your history logo */}
-        <img src={TRANSACTION} alt="History Logo" />
-
+        <img src={TRANSACTION} alt="History Logo"/>
+        History
       </div>
       <div
         className={`logo ${selectedOption === 'send' ? 'active' : ''}`}
         onClick={() => onSelectOption('send')}
       >
         {/* Replace with your send logo */}
-        <img src={SEND} alt="Send Logo" />
+        <img src={SEND} alt="Send Logo"/>Send
       </div>
 
       {/* <div
@@ -29,7 +29,11 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
         {/* Replace with your receive logo 
         <img src="" alt="Receive Logo" />
       </div> */}
+
+{/* <button className='logout'>Logout</button> */}
+
     </div>
+    
   );
 };
 

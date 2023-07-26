@@ -6,7 +6,7 @@
     background-color: #eeeff0;
     width: 80px; /* Adjust the width as needed */
     height: 100vh; /* Adjust the height as needed */
-    position:absolute;
+    position:fixed;
     left: 0;
     top: 0;
     border-right: 0.5px solid #ccc;
@@ -35,3 +35,8 @@
     height: 40px; /* Adjust the logo size as needed */
   }
   
+.logout{
+  margin-bottom: 0;
+  align-items: end;
+}
+

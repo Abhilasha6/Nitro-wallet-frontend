@@ -42,19 +42,12 @@ const LoginPage = ({ onPageChange }) => {
 
         <div className="login-box">
           <form onSubmit={handleLogin}>
-            <label className="field-name">Enter Wallet ID or Email</label>
-            <input
-              className="input-field"
-              type="text"
-              placeholder="Wallet ID or Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <label className="field-name">Enter Password</label>
+            
+            <label className="field-name">Enter your secret phrase</label>
             <input
               className="input-field"
               type="password"
-              placeholder="Password"
+              placeholder="Secret-Phrase"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

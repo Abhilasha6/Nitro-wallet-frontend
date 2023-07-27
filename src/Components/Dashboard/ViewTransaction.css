@@ -1,21 +1,36 @@
+.view-transaction{
+  margin: 0 10%;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
 .transaction-table {
     border-collapse: separate;
+    /* border-collapse: collapse; */
+    table-layout: fixed;
     border-spacing: 0;
     width: 100%;
+    margin-right: 10%;
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 5%;
     border: 1.5px solid rgb(8, 8, 8); /* Add border style to the table */
   }
   
   .transaction-table th,
   .transaction-table td {
     border: 1.5px solid rgb(12, 11, 11); /* Adjust the border thickness as desired */
-    padding: 20px;
+    padding: 10px;
     text-align: left;
+    text-align: center;
+    word-wrap: break-word;
+    /* margin: 0 10%; */
+
   }
   
   .transaction-table th {
-    background-color: #eeeff0;
+    background-color: #c6cacf;
+    margin: 0 10%;
   }
   
   .view-transaction h2 {
@@ -23,7 +38,11 @@
     border: 1.5px solid rgb(8, 8, 8);
     background-color: #006193;
     color: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 4px;
+    /* margin: 0 10%; */
   }
-  
+
+  tbody{
+    margin: 0 10%;
+  }

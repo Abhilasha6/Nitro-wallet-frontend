@@ -55,7 +55,7 @@
   .tagline {
     font-size: 16px;
     margin-bottom: 20px;
-    /* text-align: center; */
+    text-align: center;
     /* align-items: center; */
     /* margin: 1vh 1vh; */
     /* justify-content: center; */
@@ -113,11 +113,18 @@
   justify-content: center;
   display: flex;
   align-items: center;
+  text-align: center;
 }
+
+.create-account .tagline{
+  margin-bottom: 0;
+}
+
 
 .create-button{
   font-size: 14px;
   margin: 5px;
+  border-radius: 4px;
   background-color: #49a00fac;
   color: white;
   font-weight: bold;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SEND, TRANSACTION } from '../../assets/Images';
+import { SEND, HOME } from '../../assets/Images';
 import './VerticalBar.css';
 
 
@@ -11,8 +11,8 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
         onClick={() => onSelectOption('history')}
       > 
         {/* Replace with your history logo */}
-        <img src={TRANSACTION} alt="History Logo"/>
-        History
+        <img src={HOME} alt="Home Logo"/>
+        Home
       </div>
       <div
         className={`logo ${selectedOption === 'send' ? 'active' : ''}`}

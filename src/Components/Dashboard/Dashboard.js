@@ -44,20 +44,6 @@ const Dashboard = () => {
       <button type="button" className='crypto-button3' onClick={()=>{setSelectedOption('send')}}>Send Crypto3</button>
       </div> */}
 
-        {/* <Navbar /> */}
-
-        {/* <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
-  <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
-    {/* <a class="flex-none text-xl font-semibold dark:text-white" href="#">Brand</a> 
-    <div class="flex flex-row items-center gap-5 mt-5 sm:justify-end sm:mt-0 sm:pl-5">
-      <a class="font-medium text-blue-500" href="#" aria-current="page">Crypto1</a>
-      <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Crpto2</a>
-      <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Crpto3</a>
-      <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Crpto4</a>
-    </div>
-  </nav>
-</header> */}
-
         <main className="ml-16 px-8">
           <div className="border-b-2 text-sm flex gap-4 justify-center border-gray-300">
             <div className=" border-blue-500 p-4 relative flex flex-col items-center gap-2">

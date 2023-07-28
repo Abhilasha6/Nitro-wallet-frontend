@@ -13,7 +13,6 @@ import Dashboard from './Components/Dashboard/Dashboard';
 // import SignUp from './pages/signup';
 
 
-
 const App = () => {
   const [currentPage, setCurrentPage] = useState('login');
 

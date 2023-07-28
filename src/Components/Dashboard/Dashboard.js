@@ -5,6 +5,7 @@ import ViewTransaction from "./ViewTransaction";
 import SendCrypto from "./SendCrypto";
 // import ReceiveCrypto from './ReceiveCrypto';
 import { FIL } from "../../assets/Images";
+import {vault} from "../../assets/Images"
 // import { Navigate } from 'react-router-dom';
 // import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
 // import Navbar from '../Navbar/nav-index';
@@ -33,18 +34,15 @@ const Dashboard = () => {
         selectedOption={selectedOption}
         onSelectOption={setSelectedOption}
       />
-      <div className="fid-logo">
+      <div className="vault-logo-dash">
+        <img src={vault} />
+      </div>
+      <div className="fil-logo-dash">
         <img src={FIL} />
       </div>
 
-      <div className="center-view">
-        {/* <div className='wallets'>
-      <button type="button" className='crypto-button1' onClick={()=>{setSelectedOption('send')}}>Send Crypto1</button>
-      <button type="button" className='crypto-button2' onClick={()=>{setSelectedOption('send')}}>Send Crypto2</button>
-      <button type="button" className='crypto-button3' onClick={()=>{setSelectedOption('send')}}>Send Crypto3</button>
-      </div> */}
-
-        <main className="ml-16 px-8">
+      <div className="imageView">
+      <main className="ml-16 px-8">
           <div className="border-b-2 text-sm flex gap-4 justify-center border-gray-300">
             <div className=" border-blue-500 p-4 relative flex flex-col items-center gap-2">
               <a href="#">
@@ -101,6 +99,16 @@ const Dashboard = () => {
 
           </div>
         </main>
+      </div>
+
+      <div className="center-view">
+        {/* <div className='wallets'>
+      <button type="button" className='crypto-button1' onClick={()=>{setSelectedOption('send')}}>Send Crypto1</button>
+      <button type="button" className='crypto-button2' onClick={()=>{setSelectedOption('send')}}>Send Crypto2</button>
+      <button type="button" className='crypto-button3' onClick={()=>{setSelectedOption('send')}}>Send Crypto3</button>
+      </div> */}
+
+        
 
         {/* <Nav>
 		<Bars />

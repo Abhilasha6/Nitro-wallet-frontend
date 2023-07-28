@@ -1,36 +1,38 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-import usersData from "../../user.json";
+import usersData from "../CreateAccountPage/usersData.json";
 import { vault } from "../../assets/Images";
 import { FIL } from "../../assets/Images";
 import { rightpane } from "../../assets/Images";
 
+
 const LoginPage = ({ onPageChange }) => {
-  const [email, setEmail] = useState("");
-  const [secret, setPassword] = useState("");
+ 
+  const [secret, setSecret] = useState("");
   const [error, setError] = useState("");
+  
 
 
 const handleLogin = (e) => {
     e.preventDefault();  
-  const user = usersData.users.find(
-    (user) =>
-    
-      user.secret === secret
-  );
+    const user = usersData.find((user) => user.secretPhrase === secret);
     
     if (user) {
       // Successfully logged in, redirect to the dashboard
       // You can implement the redirect using React Router or any other method
       onPageChange("dashboard");
       console.log('Logged in successfully!');
+      
     } else {
       setError('Invalid secret phrase. Please try again.');
     }
   };
+
   const handleCreateAccount = () => {
-    onPageChange();
+    onPageChange("createAccount");
   };
+
+  
 
   return (
     <div className="login-page">
@@ -58,7 +60,7 @@ const handleLogin = (e) => {
               type="password"
               placeholder="Secret-Phrase"
               value={secret}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setSecret(e.target.value)}
             />
             <button type="submit" className="login-button">
               Login

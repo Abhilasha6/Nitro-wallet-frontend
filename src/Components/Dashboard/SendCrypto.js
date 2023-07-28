@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import ConfirmationPopup from './ConfirmationPopup';
 import './SendCrypto.css';
 import axios from 'axios';
+import usersData from "../CreateAccountPage/usersData.json";
+import rot13_decrypt from '../../Services/encryption';
 
 const SendCrypto = ({onClose}) => {
-  const [senderAddress, setSenderAddress] = useState('0xc0ffee254729296a45a3885639AC7E10F9d54979');
+  const [senderAddress, setSenderAddress] = useState('');
   const [destinationAddress, setDestinationAddress] = useState('');
   const [amount, setAmount] = useState('');
   const [showPopup, setShowPopup] = useState('');
-  const [inputData, setInputData] = useState('');
   const [response, setResponse] = useState('');
-
 
   const handleClosePopup = () => {
     setShowPopup(false);
@@ -18,19 +18,57 @@ const SendCrypto = ({onClose}) => {
   };
 
 
+
+  const handleSet = () => {
+    // Get the user object based on the provided public address
+    const user = usersData.find((userData) => userData.publicId === senderAddress);
+
+    if (user) {
+      // Found the user, now you can access their private key
+      const privateKey = user.privateKey;
+      const decryptedPrivateKey = rot13_decrypt(privateKey);
+
+      console.log('Decrypted Private Key:', decryptedPrivateKey);
+
+      // Prepare the API request data with the decrypted private key
+      const apiUrl = 'https://u67h5mobnf.execute-api.eu-west-1.amazonaws.com/dev/nitro'; // Replace this with your actual API URL
+      const requestData = {
+        operation: 'set_key',
+        eth_key: decryptedPrivateKey,
+      };
+
+      // Send the API request
+      axios
+        .post(apiUrl, requestData)
+        .then((response) => {
+          console.log('API Response:', response.data);
+          // You can set the response data to state if needed
+          // setResponse(response.data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
+      
+      // Do something with the private key, like setting it to state or using it for encryption/signing
+    } else {
+      console.log('User not found for the given public address:', senderAddress);
+    }
+  };
+  handleSet();
+
+  // handleSet();
+
+
+
   const handleSend = () => {
     const apiUrl = 'https://u67h5mobnf.execute-api.eu-west-1.amazonaws.com/dev/nitro'; // Replace this with your actual API URL
-
-    // const handleCancel = () => {
-    //   setInputValue("");
-    // };
-
-    const requestData = {
+    
+     const requestData = {
       operation: 'sign_transaction',
       transaction_payload: {
         value: amount,
-        to: destinationAddress,
-        from: senderAddress,
+        to: destinationAddress,        
         nonce: 0,
         type: 2,
         chainId: 4,
@@ -49,23 +87,7 @@ const SendCrypto = ({onClose}) => {
       });
   };
 
-
-  // const PopupComponent = () => {
-  //   const [showPopup, setShowPopup] = useState(true);
   
-   
-
-
-    // const styles={
-    //   Close : {
-    //     fontSize : "1.5rem",
-    //     position : "absolute",
-    //     top : "2rem",
-    //     right : "2rem",
-    //     cursor : "pointer",
-    // }
-    // }
-
   return (
     <div className="send-crypto-modal">
       {/* <form style = {{...styles.FlexContainer, ...active}} onSubmit = {(e) => {transfer(e, to, value);handeModalChange("close")}} > */}

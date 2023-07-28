@@ -3,26 +3,33 @@ import "./Dashboard.css";
 import VerticalBar from "./VerticalBar";
 import ViewTransaction from "./ViewTransaction";
 import SendCrypto from "./SendCrypto";
-// import ReceiveCrypto from './ReceiveCrypto';
-import { FIL } from "../../assets/Images";
-import {vault} from "../../assets/Images"
-// import { Navigate } from 'react-router-dom';
-// import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-// import Navbar from '../Navbar/nav-index';
+import { FIL, vault } from "../../assets/Images";
+import usersData from "../CreateAccountPage/usersData.json";
+import { getAccountInfoFromPrivateKey } from '../../Services/ethereumService.js'; 
+import rot13_decrypt from '../../Services/encryption';
 
 const Dashboard = () => {
+
+  // const username  = "Account1";
+
+  // const user = usersData.find((userData) => userData.username === username);
+  // const privateKey = user.privateKey;
+  // const decryptedPrivateKey = rot13_decrypt(privateKey);
+  // const wallet = getAccountInfoFromPrivateKey(decryptedPrivateKey);
+  
+
+
+
   const [selectedOption, setSelectedOption] = useState("history");
   const [publicId, setPublicId] = useState("0xc0ffee254729296a45a3885639AC7E10F9d54979"); // Replace with actual user public ID
   const [accountBalance, setAccountBalance] = useState("7.5"); // Replace with actual account balance
 
   const renderView = () => {
     switch (selectedOption) {
-      // case 'history':
-      //   return <ViewTransaction />;
+    
       case "send":
         return <SendCrypto onClose={()=>{setSelectedOption("")}} />;
-      // case 'receive':
-      //   return <ReceiveCrypto />;
+   
       default:
         return null;
     }
@@ -34,15 +41,18 @@ const Dashboard = () => {
         selectedOption={selectedOption}
         onSelectOption={setSelectedOption}
       />
-      <div className="vault-logo-dash">
-        <img src={vault} />
-      </div>
-      <div className="fil-logo-dash">
-        <img src={FIL} />
+      <div className="fid-logo">
+        
+        <img src={vault} alt="VAULT" className="vault-image" />
+        <img src={FIL} alt="FIL"  className="fil-image"/>
       </div>
 
-      <div className="imageView">
-      <main className="ml-16 px-8">
+
+      <div className="center-view">
+       
+
+
+        <main className="ml-16 px-8">
           <div className="border-b-2 text-sm flex gap-4 justify-center border-gray-300">
             <div className=" border-blue-500 p-4 relative flex flex-col items-center gap-2">
               <a href="#">
@@ -99,72 +109,8 @@ const Dashboard = () => {
 
           </div>
         </main>
-      </div>
 
-      <div className="center-view">
-        {/* <div className='wallets'>
-      <button type="button" className='crypto-button1' onClick={()=>{setSelectedOption('send')}}>Send Crypto1</button>
-      <button type="button" className='crypto-button2' onClick={()=>{setSelectedOption('send')}}>Send Crypto2</button>
-      <button type="button" className='crypto-button3' onClick={()=>{setSelectedOption('send')}}>Send Crypto3</button>
-      </div> */}
 
-        
-
-        {/* <Nav>
-		<Bars />
-
-		<NavMenu>
-		<NavLink to='/about' activeStyle>
-			About
-		</NavLink>
-		<NavLink to='/events' activeStyle>
-			Events
-		</NavLink>
-		<NavLink to='/annual' activeStyle>
-			Annual Report
-		</NavLink>
-		<NavLink to='/team' activeStyle>
-			Teams
-		</NavLink>
-		<NavLink to='/blogs' activeStyle>
-			Blogs
-		</NavLink>
-		<NavLink to='/sign-up' activeStyle>
-			Sign Up
-		</NavLink>
-		{/* Second Nav */}
-        {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> 
-		</NavMenu>
-		<NavBtn>
-		<NavBtnLink to='/signin'>Sign In</NavBtnLink>
-		</NavBtn>
-	</Nav> */}
-
-        {/* <Tabs position="relative" variant="unstyled">
-    <TabList>
-      <Tab>One</Tab>
-      <Tab>Two</Tab>
-      <Tab>Three</Tab>
-    </TabList>
-    <TabIndicator
-      mt="-1.5px"
-      height="2px"
-      bg="blue.500"
-      borderRadius="1px"
-    />
-    <TabPanels>
-      <TabPanel>
-        <p>one!</p>
-      </TabPanel>
-      <TabPanel>
-        <p>two!</p>
-      </TabPanel>
-      <TabPanel>
-        <p>three!</p>
-      </TabPanel>
-    </TabPanels>
-  </Tabs>
- */}
 
         <h2>User Public ID: {publicId}</h2>
         <h3>Account Balance: {accountBalance}</h3>

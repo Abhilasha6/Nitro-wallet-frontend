@@ -8,35 +8,31 @@
   position: relative;
 }
 
-/* .dashboard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 16px;
-  right: 0;
-  height: 60px;
-  /* width: 100%; 
-  background-color: #006193;
-  z-index: 10;
-} */
-
-.dashboard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: #006193;
-}
-
-.fid-logo{
+.vault-logo-dash {
   position: absolute;
   top: 1vh;
   left: 20px;
   display: flex;
   align-items: center;
+  width: 250px;
+  height: 75px;
 }
+
+.fil-logo-dash {
+  position: absolute;
+  top: 1vh;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+.imageView{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  margin-top: 300px;
+}
+
 
 .center-view {
   display: flex;
@@ -44,8 +40,11 @@
   align-items: center;
   justify-content: center;
   margin-top: 50px; /* Adjust the margin as needed */
+  width: 400px;
 }
-
+.center-view img{
+  height: 50px;
+}
 .center-view h2 {
   font-size: 24px;
   margin-top: 3% auto 0 auto;

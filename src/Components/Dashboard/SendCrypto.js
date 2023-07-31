@@ -5,7 +5,7 @@ import axios from 'axios';
 import usersData from "../CreateAccountPage/usersData.json";
 import rot13_decrypt from '../../Services/encryption';
 
-const SendCrypto = ({onClose}) => {
+const SendCrypto = ({ onClose,setLoading }) => {
   const [senderAddress, setSenderAddress] = useState('');
   const [destinationAddress, setDestinationAddress] = useState('');
   const [amount, setAmount] = useState('');
@@ -61,7 +61,12 @@ const SendCrypto = ({onClose}) => {
 
 
 
-  const handleSend = () => {
+  const handleSend = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 6000);
     const apiUrl = 'https://u67h5mobnf.execute-api.eu-west-1.amazonaws.com/dev/nitro'; // Replace this with your actual API URL
     
      const requestData = {
@@ -84,6 +89,9 @@ const SendCrypto = ({onClose}) => {
       })
       .catch((error) => {
         console.error('Error:', error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -95,7 +103,6 @@ const SendCrypto = ({onClose}) => {
       <h2><b>Send Crypto</b></h2>
       <button type="submit" onClick={handleClosePopup}>❌</button>
       </div>
-      
       <hr/>
       <div className="input-fields">
 

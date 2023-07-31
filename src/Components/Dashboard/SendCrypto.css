@@ -63,26 +63,46 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-hr{
+hr {
   background: #4AA00F;
-          color: #4AA00F;
-          border: #4AA00F;
-          height: 3px;
-          /* // width:'110%';
-          // left: '0'; */
+  color: #4AA00F;
+  border: #4AA00F;
+  height: 3.5px;
 }
 
-.title{
+.title {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin-bottom: 5px;
- }
+  align-items:center ;
+  text-align: left;
+  margin-left: 0;
+}
+.title > h2 {
+  width: 100%;
+  text-align: left;
+}
 
- .title button{
+.title button {
   background-color: #eeeff0;
   font-weight: bold;
- }
+}
 
- .title button:hover{
-background-color: #d1d5da;
- }
+.title button:hover {
+  background-color: #d1d5da;
+}
+
+/* Styling for the success message */
+.success-message {
+  display: none;
+  /* Initially hidden */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}

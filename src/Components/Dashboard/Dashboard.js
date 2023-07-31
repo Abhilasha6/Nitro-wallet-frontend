@@ -7,6 +7,9 @@ import { FIL, vault } from "../../assets/Images";
 import usersData from "../CreateAccountPage/usersData.json";
 import { getAccountInfoFromPrivateKey } from '../../Services/ethereumService.js'; 
 import rot13_decrypt from '../../Services/encryption';
+import LoadingScreen from "./LoadingPage/LoadingScreen";
+
+
 
 const Dashboard = () => {
 
@@ -19,7 +22,7 @@ const Dashboard = () => {
   
 
 
-
+  const [loading,setLoading] = useState(false);
   const [selectedOption, setSelectedOption] = useState("history");
   const [publicId, setPublicId] = useState("0xc0ffee254729296a45a3885639AC7E10F9d54979"); // Replace with actual user public ID
   const [accountBalance, setAccountBalance] = useState("7.5"); // Replace with actual account balance
@@ -28,7 +31,7 @@ const Dashboard = () => {
     switch (selectedOption) {
     
       case "send":
-        return <SendCrypto onClose={()=>{setSelectedOption("")}} />;
+        return <SendCrypto onClose={()=>{setSelectedOption("")}} setLoading={setLoading}/>;
    
       default:
         return null;
@@ -36,6 +39,8 @@ const Dashboard = () => {
   };
 
   return (
+
+    <>{loading && <LoadingScreen />}
     <div className="dashboard">
       <VerticalBar
         selectedOption={selectedOption}
@@ -130,6 +135,7 @@ const Dashboard = () => {
         {renderView()}
       </div>
     </div>
+    </>
   );
 };
 

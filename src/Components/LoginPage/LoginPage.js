@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./LoginPage.css";
 import usersData from "../CreateAccountPage/usersData.json";
 import { vault } from "../../assets/Images";
 import { FIL } from "../../assets/Images";
 import { rightpane } from "../../assets/Images";
+import { AuthContext } from '../../Authorisation/AuthContext'; 
+import { useHistory } from "react-router-dom";
 
 
-const LoginPage = ({ onPageChange }) => {
+const LoginPage = () => {
  
   const [secret, setSecret] = useState("");
   const [error, setError] = useState("");
+  const authContext = useContext(AuthContext);
+  const history = useHistory(); 
   
 
 
@@ -20,7 +24,8 @@ const handleLogin = (e) => {
     if (user) {
       // Successfully logged in, redirect to the dashboard
       // You can implement the redirect using React Router or any other method
-      onPageChange("dashboard");
+      authContext.setPublicKey(user.publicId);
+      history.push("/dashboard");
       console.log('Logged in successfully!');
       
     } else {
@@ -29,7 +34,7 @@ const handleLogin = (e) => {
   };
 
   const handleCreateAccount = () => {
-    onPageChange("createAccount");
+    history.push("/create-account");
   };
 
   
@@ -58,7 +63,7 @@ const handleLogin = (e) => {
             <input
               className="input-field"
               type="password"
-              placeholder="Secret-Phrase"
+              placeholder="Wallet ID"
               value={secret}
               onChange={(e) => setSecret(e.target.value)}
             />

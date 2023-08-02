@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import './CreateAccountPage.css';
 import { createNewAccount } from '../../Services/ethereumService.js'; // Import createNewAccount from ethereumService.js
 import { generateWalletId } from '../../Services/mnemonicGenerator.js';
+import { useHistory } from "react-router-dom";
 
-
-const CreateAccountPage = ({ onPageChange }) => {
+const CreateAccountPage = () => {
   const [username, setUsername] = useState('');
   const [generatedPhrase, setGeneratedPhrase] = useState('');
   const [publicId, setPublicId] = useState('');
   const [address, setAddress] = useState(''); // State to store the address
   const [step, setStep] = useState(1);
   const [privateKey, setPrivateKey] = useState('');
+  const history = useHistory();
 
 
   const handleCreate = async() => {
@@ -33,6 +34,7 @@ const handleNext = async () => {
   const userData = {
     username,
     privateKey,
+    
     secretPhrase: generatedPhrase,
     publicId: address,
   };
@@ -64,8 +66,21 @@ const handleNext = async () => {
   
 
   const handleCopyPhrase = () => {
-    // Implement your logic to copy the generated phrase to clipboard here
-    // For demonstration purposes, let's assume it copies to clipboard successfully
+    const textarea = document.createElement('textarea');
+    textarea.value = generatedPhrase;
+    document.body.appendChild(textarea);
+
+    // Select the text inside the textarea
+    textarea.select();
+    textarea.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the text to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary textarea element
+    document.body.removeChild(textarea);
+
+    // Show an alert or any other notification to indicate successful copy
     alert('Phrase copied to clipboard!');
   };
 
@@ -80,6 +95,7 @@ const handleNext = async () => {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              placeholder="Account Name"
               required
             />
             <button type="button" onClick={handleCreate}>
@@ -92,7 +108,7 @@ const handleNext = async () => {
       {step === 2 && (
         <div className="create-account-box">
           <h1>Generated Unique Wallet ID</h1>
-          <p>{generatedPhrase}</p>
+          <p className='phrase'>{generatedPhrase}</p>
           <button type="button" onClick={handleCopyPhrase}>
             Copy
           </button>
@@ -103,11 +119,11 @@ const handleNext = async () => {
       )}
 
       {step === 3 && (
-        <div className="create-account-box">
+        <div className="create-account-box-3">
           <h1>Generated Public ID</h1>
           <p>{address}</p>
-          <button type="button" onClick={() => onPageChange('dashboard')}>
-            Go to Dashboard
+          <button type="button" onClick={() => history.push("/dashboard")}>
+            Go to Login Page
           </button>
         </div>
       )}

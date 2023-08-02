@@ -88,6 +88,8 @@
   width: 100%;
   cursor: pointer;
   font-weight: bold;
+  margin-left: -1spx; 
+  
 }
 .login-button:hover{
   background-color: #5ab51d;

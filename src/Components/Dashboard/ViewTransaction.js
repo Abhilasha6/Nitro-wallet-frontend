@@ -1,63 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './ViewTransaction.css';
+import transactionsData from '../CreateAccountPage/transaction.json'; // Import the transaction data from the JSON file
+import { AuthContext } from '../../Authorisation/AuthContext'; // Import the AuthContext
 
 const ViewTransaction = () => {
-  // Placeholder transaction data
-  const transactions = [
-    {
-      id: 1,
-      hash: '0x123456789abcdef',
-      from: '0xc0ffee254729296a45a3885639AC7E10F9d54979',
-      to: '0xabAf751edBfE62448155062a1A6d1a29d6E87545',
-      value: 0.5,
-      timestamp: '2022-01-01',
-    },
-    {
-      id: 2,
-      hash: '0xfedcba987654321',
-      from: '0x04ce2019C0C768Abf95987fdDA305672F48b6662',
-      to: '0x04d25F04DFD9AaC2d87d360B4E215f4d0019fBd2',
-      value: 1.2,
-      timestamp: '2022-02-02',
-    },
-    {
-      id: 3,
-      hash: '0x987654321abcdef',
-      from: '0x0187c4bb411f8D88755954cf0048648EC9C46b1b',
-      to: '0x999999cf1046e68e36E1aA2E0E07105eDDD1f08E',
-      value: 0.8,
-      timestamp: '2022-03-03',
-    },
-    
-  ];
+  const [transactions, setTransactions] = useState([]);
+  const authContext = useContext(AuthContext); // Access the AuthContext here
+  const authorizedPublicKey = authContext.publicKey; // Get the authorized public key from the AuthContext
+
+  // Load the transactions from the JSON file and filter based on the authorized public key
+  useEffect(() => {
+    const filteredTransactions = transactionsData.filter(
+      (transaction) =>
+        transaction.senderAddress === authorizedPublicKey 
+    );
+    setTransactions(filteredTransactions);
+  }, [authorizedPublicKey]);
+
+  const truncateAddress = (address) => {
+    if (address.length <= 8) return address;
+    return `${address.substring(0, 6)}...${address.substring(address.length - 4)}`;
+  };
+
+  const handleCopyPhrase = (event) => {
+    const tooltipText = event.target.getAttribute('data-tip');
+    if (tooltipText) {
+      const textarea = document.createElement('textarea');
+      textarea.value = tooltipText;
+      document.body.appendChild(textarea);
+  
+      // Select the text inside the textarea
+      textarea.select();
+      // textarea.setSelectionRange(0, 99999); 
+  
+      // Copy the text to the clipboard
+      document.execCommand('copy');
+  
+      // Remove the temporary textarea element
+      document.body.removeChild(textarea);
+  
+      // Show an alert or any other notification to indicate successful copy
+      alert('Text copied to clipboard!');
+    }
+  };
+  
 
   return (
     <div className="view-transaction">
       <h2>Transaction History</h2>
-      <table className="transaction-table">
-        <thead>
-          <tr>
-            <th>Hash</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Value</th>
-            <th>Timestamp</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction.id}>
-              <td>{transaction.hash}</td>
-              <td>{transaction.from}</td>
-              <td>{transaction.to}</td>
-              <td>{transaction.value}</td>
+      <div className="transaction-table-container">
+        <table className="transaction-table">
+          <thead>
+            <tr>
+              <th>Transaction Hash</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Amount</th>
+              <th>Completed At</th>
+            </tr>
+          </thead>
+          <tbody>
+            {transactions.map((transaction) => (
+              <tr key={transaction.id}>
+              <td title={transaction.transactionHash} style={{ cursor: 'pointer' }} >{truncateAddress(transaction.transactionHash)}</td>
+              <td title={transaction.senderAddress} style={{ cursor: 'pointer' }} >{truncateAddress(transaction.senderAddress)}</td>
+              <td title={transaction.destinationAddress} style={{ cursor: 'pointer' }}>{truncateAddress(transaction.destinationAddress)}</td>
+              <td>{`${transaction.amount} ETH`}</td>
               <td>{transaction.timestamp}</td>
             </tr>
-          ))}
-        </tbody>
-      </table>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
-
 export default ViewTransaction;

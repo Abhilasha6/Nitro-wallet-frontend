@@ -11,11 +11,6 @@ const createNewAccount = () => {
   try {
     const wallet = ethers.Wallet.createRandom(); // Generate a new random wallet
 
-    // Access the Ethereum address of the wallet
-    
-
-    // Create the account object with the address
-   
 
     return wallet;
   } catch (error) {

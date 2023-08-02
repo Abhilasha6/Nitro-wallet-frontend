@@ -1,5 +1,5 @@
 import React from 'react';
-import { SEND, HOME } from '../../assets/Images';
+import { SEND, HOME, USER } from '../../assets/Images';
 import './VerticalBar.css';
 
 
@@ -21,16 +21,16 @@ const VerticalBar = ({ selectedOption, onSelectOption }) => {
         {/* Replace with your send logo */}
         <img src={SEND} alt="Send Logo"/>Send
       </div>
+      <div
+        className={`logo1 ${selectedOption === 'history' ? 'active' : ''}`}
+        onClick={() => onSelectOption('history')}
+      > 
+        {/* Replace with your history logo */}
+        <img src={USER} alt="User Logo"/>
+        User
+      </div>
+   
 
-      {/* <div
-        className={`logo ${selectedOption === 'receive' ? 'active' : ''}`}
-        onClick={() => onSelectOption('receive')}
-      >
-        {/* Replace with your receive logo 
-        <img src="" alt="Receive Logo" />
-      </div> */}
-
-{/* <button className='logout'>Logout</button> */}
 
     </div>
     

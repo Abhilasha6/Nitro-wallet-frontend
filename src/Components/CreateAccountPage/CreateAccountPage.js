@@ -4,6 +4,7 @@ import { createNewAccount } from '../../Services/ethereumService.js'; // Import 
 import { generateWalletId } from '../../Services/mnemonicGenerator.js';
 import { useHistory } from "react-router-dom";
 
+
 const CreateAccountPage = () => {
   const [username, setUsername] = useState('');
   const [generatedPhrase, setGeneratedPhrase] = useState('');
@@ -61,28 +62,38 @@ const handleNext = async () => {
   setStep(3);
 };
 
+const handleCopyPhrase = () => {
+  try {
+    // Get the generated phrase to be copied
+    const content = generatedPhrase;
 
-  
-  
+    // Create a new Blob object with the content and set the MIME type to plain text
+    const blob = new Blob([content], { type: 'text/plain' });
 
-  const handleCopyPhrase = () => {
-    const textarea = document.createElement('textarea');
-    textarea.value = generatedPhrase;
-    document.body.appendChild(textarea);
+    // Create a URL for the Blob object
+    const url = URL.createObjectURL(blob);
 
-    // Select the text inside the textarea
-    textarea.select();
-    textarea.setSelectionRange(0, 99999); // For mobile devices
+    // Create a temporary anchor element to trigger the download
+    const anchor = document.createElement('a');
+    anchor.href = url;
 
-    // Copy the text to the clipboard
-    document.execCommand('copy');
+    // Set the anchor's attributes to download the file with the desired filename
+    anchor.download = `${username}.txt`;
 
-    // Remove the temporary textarea element
-    document.body.removeChild(textarea);
+    // Trigger the download
+    anchor.click();
 
-    // Show an alert or any other notification to indicate successful copy
-    alert('Phrase copied to clipboard!');
-  };
+    // Clean up by revoking the URL
+    URL.revokeObjectURL(url);
+
+    
+   
+  } catch (error) {
+    console.error('Error copying phrase:', error);
+    alert('An error occurred while copying the phrase.');
+  }
+};
+
 
   return (
     <div className="create-account-page">
@@ -108,9 +119,9 @@ const handleNext = async () => {
       {step === 2 && (
         <div className="create-account-box">
           <h1>Generated Unique Wallet ID</h1>
-          <p className='phrase'>{generatedPhrase}</p>
+          <p className='phrase'>{`***********${generatedPhrase.slice(-4)}`}</p>
           <button type="button" onClick={handleCopyPhrase}>
-            Copy
+            Download
           </button>
           <button type="button" onClick={handleNext}>
             Next

@@ -17,16 +17,16 @@ const SendCrypto = ({ onClose, setLoading }) => {
   const authorizedPublicKey = authContext.publicKey;
 
   useEffect(() => {
-
-    if (senderAddress !== authorizedPublicKey ) {
-      return ;
+    if (authorizedPublicKey) {
+      const user = usersData.find((userData) => userData.publicId === authorizedPublicKey);
+  
+      if (user) {
+        setSenderAddress(user.publicId);
+        handleSet(user.publicId);
+      }
     }
-
-    handleSet(authorizedPublicKey)
-
-  }, [senderAddress])
-
-
+  }, [authorizedPublicKey]);
+  
   const handleClosePopup = () => {
     setShowPopup(false);
     onClose()
@@ -67,12 +67,7 @@ const SendCrypto = ({ onClose, setLoading }) => {
     } else {
       console.log('User not found for the given public address:', senderAddress);
     }
-
-
-
-
   };
-
 
   const handleSend = async (event) => {
     event.preventDefault();

@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./LoginPage.css";
 import usersData from "../CreateAccountPage/usersData.json";
-import { vault } from "../../assets/Images";
-import { FIL } from "../../assets/Images";
-import { rightpane } from "../../assets/Images";
+import { VAULT, FIL, RIGHTPANE } from "../../assets/Images";
 import { AuthContext } from '../../Authorisation/AuthContext'; 
 import { useHistory } from "react-router-dom";
 
@@ -29,7 +27,7 @@ const handleLogin = (e) => {
       console.log('Logged in successfully!');
       
     } else {
-      setError('Invalid secret phrase. Please try again.');
+      setError('Invalid recovery phrase! Please try again.');
     }
   };
 
@@ -37,13 +35,11 @@ const handleLogin = (e) => {
     history.push("/create-account");
   };
 
-  
-
   return (
     <div className="login-page">
 
       <div className="vault-logo">
-        <img src={vault} />
+        <img src={VAULT} />
       </div>
 
       <div className="fil-logo">
@@ -59,11 +55,11 @@ const handleLogin = (e) => {
         <div className="login-box">
           <form onSubmit={handleLogin}>
             
-            <label className="field-name">Welcome to Vault. <br></br>Please enter your secret phrase to login.</label>
+            <label className="field-name">Welcome to Vault. <br></br>Import your existing wallet by entering your secrect recovery phrase.</label>
             <input
               className="input-field"
               type="password"
-              placeholder="Wallet ID"
+              placeholder="Begin typing your recovery phrase..."
               value={secret}
               onChange={(e) => setSecret(e.target.value)}
             />
@@ -74,11 +70,11 @@ const handleLogin = (e) => {
           {error && <p className="error-message">{error}</p>}
         </div>
         <div className="create-account">
-          <p className="tagline">Don't have an account?<a href="#" onClick={handleCreateAccount} className="create-link"> Create one here.</a></p>
+          <p className="tagline">Don't have a wallet?<a href="#" onClick={handleCreateAccount} className="create-link"> Create one <u>here</u>.</a></p>
       </div>
       </div>
       <div className="right-pane">
-        <img src={rightpane} alt="right-pane"></img>
+        <img src={RIGHTPANE} alt="right-pane"></img>
       </div>
     </div>
   );

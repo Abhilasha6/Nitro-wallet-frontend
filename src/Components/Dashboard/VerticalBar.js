@@ -1,39 +1,54 @@
 import React from 'react';
-import { SEND, HOME, USER } from '../../assets/Images';
+import { HOME, ACCOUNT, SETTINGS,SUPPORT, LOGOUT} from '../../assets/Images';
 import './VerticalBar.css';
-
 
 const VerticalBar = ({ selectedOption, onSelectOption }) => {
   return (
     <div className="vertical-bar">
       <div
-        className={`logo ${selectedOption === 'history' ? 'active' : ''}`}
+        className={`verticalLOGO1 ${selectedOption === 'history' ? 'active' : ''}`}
         onClick={() => onSelectOption('history')}
       > 
         {/* Replace with your history logo */}
         <img src={HOME} alt="Home Logo"/>
         Home
       </div>
+      
       <div
-        className={`logo ${selectedOption === 'send' ? 'active' : ''}`}
-        onClick={() => onSelectOption('send')}
-      >
-        {/* Replace with your send logo */}
-        <img src={SEND} alt="Send Logo"/>Send
-      </div>
-      <div
-        className={`logo1 ${selectedOption === 'history' ? 'active' : ''}`}
+        className={`verticalLOGO2 ${selectedOption === 'history' ? 'active' : ''}`}
         onClick={() => onSelectOption('history')}
       > 
         {/* Replace with your history logo */}
-        <img src={USER} alt="User Logo"/>
-        User
+        <img src={ACCOUNT} alt="User Logo"/>
+        Account
       </div>
-   
-
+      <div
+        className={`verticalLOGO3 ${selectedOption === 'history' ? 'active' : ''}`}
+        onClick={() => onSelectOption('history')}
+      > 
+        {/* Replace with your history logo */}
+        <img src={SETTINGS} alt="User Logo"/>
+        Settings
+      </div>
+      <div
+        className={`verticalLOGO4 ${selectedOption === 'history' ? 'active' : ''}`}
+        onClick={() => onSelectOption('history')}
+      > 
+        {/* Replace with your history logo */}
+        <img src={SUPPORT} alt="User Logo"/>
+        Support
+      </div>
+      <div
+        className={`verticalLOGO5 ${selectedOption === 'history' ? 'active' : ''}`}
+        onClick={() => onSelectOption('history')}
+      > 
+        {/* Replace with your history logo */}
+        <img src={LOGOUT} alt="User Logo"/>
+        Logout
+      </div>
 
     </div>
-    
+
   );
 };
 

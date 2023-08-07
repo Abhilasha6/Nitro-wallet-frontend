@@ -8,6 +8,11 @@
   background-color: #eeeff0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   /* z-index: 9999; */
+  transition: transform 0.3s ease-out;
+}
+
+.send-crypto-modal.active {
+  transform: translateX(-100%);
 }
 
 .send-crypto-modal h2 {

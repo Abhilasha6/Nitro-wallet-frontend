@@ -29,7 +29,6 @@
 .wallet-box{
   display: flex;
   flex-direction: column;
-  width: 100%;
   padding: 20px;
   justify-content: center;
   border: 1px solid #cccccc;
@@ -51,19 +50,19 @@
 .login-box {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 360px;
   padding: 20px;
   justify-content: center;
   border: 1px solid #cccccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .field-name {
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .input-field {
@@ -71,28 +70,25 @@
   font-size: 14px;
   border: 1px solid #cccccc;
   border-radius: 4px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   width: 100%;
 }
 
 /* Existing styles */
 
 .login-button {
-  padding: 10px 20px;
-  height: fit-content ;
-  font-size: 17px;
+  padding: 15px;
+  font-size: 14px;
   background-color: #4AA00F;
-  color: white;
-  border: none;
+  color: black;
   border-radius: 4px;
-  width: 100%;
   cursor: pointer;
   font-weight: bold;
-  margin-left: -1spx; 
-  
+  width: 299px;
 }
 .login-button:hover{
   background-color: #5ab51d;
+  color: white;
 }
 .create-account {
   font-size: 14px;
@@ -114,7 +110,9 @@
 .error-message {
   color: red;
   font-size: 14px;
-  margin-top: 10px;
+  margin-top: 5px;
+  text-align: center;
+  
 }
 
 .right-pane{

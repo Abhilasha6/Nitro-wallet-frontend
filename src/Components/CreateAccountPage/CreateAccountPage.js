@@ -86,14 +86,11 @@ const handleCopyPhrase = () => {
     // Clean up by revoking the URL
     URL.revokeObjectURL(url);
 
-    
-   
   } catch (error) {
     console.error('Error copying phrase:', error);
     alert('An error occurred while copying the phrase.');
   }
 };
-
 
   return (
     <div className="create-account-page">

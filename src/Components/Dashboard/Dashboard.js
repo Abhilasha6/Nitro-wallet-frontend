@@ -1,14 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect} from "react";
 
 import "./Dashboard.css";
 import VerticalBar from "./VerticalBar";
 import ViewTransaction from "./ViewTransaction";
 import SendCrypto from "./SendCrypto";
-import { FIL, vault } from "../../assets/Images";
+import { FIL, VAULT, ETHEREUM, RIPPLE, BITCOIN, NFT, TOKEN} from "../../assets/Images";
 import LoadingScreen from "./LoadingPage/LoadingScreen";
 import { AuthContext } from "../../Authorisation/AuthContext";
-
-
+import usersData from '../CreateAccountPage/usersData.json'
 
 const Dashboard = () => {
 
@@ -18,7 +17,14 @@ const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState("history");
   const [publicId, setPublicId] = useState(authorizedPublicKey); // Replace with actual user public ID
   const [accountBalance, setAccountBalance] = useState("0.00"); // Replace with actual account balance
-
+  
+  useEffect(() => {
+    // Assuming your JSON structure is like: { publicId: "xxx", balance: "xxx" }
+    const userData = usersData.find(data => data.publicId === publicId);
+    if (userData) {
+      setAccountBalance(userData.balance);
+    }
+  }, [publicId]); // Run this effect only when `publicId` changes
 
   const renderView = () => {
     switch (selectedOption) {
@@ -41,21 +47,18 @@ const Dashboard = () => {
         />
         <div className="fid-logo">
 
-          <img src={vault} alt="VAULT" className="vault-image" />
+          <img src={VAULT} alt="VAULT" className="vault-image" />
           <img src={FIL} alt="FIL" className="fil-image" />
         </div>
 
-
         <div className="center-view">
-
-
-
+          
           <main className="ml-16 px-8">
             <div className="border-b-2 text-sm flex gap-4 justify-center border-gray-300">
               <div className=" border-blue-500 p-4 relative flex flex-col items-center gap-2">
                 <a href="#">
                   <img
-                    src="https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                    src={ETHEREUM}
                     alt="eth"
                     className="h-8 w-8"
                   />Ethereum
@@ -66,7 +69,7 @@ const Dashboard = () => {
               <div className=" border-blue-500 p-4 flex flex-col items-center gap-2">
                 <a href="#">
                   <img
-                    src="https://seeklogo.com/images/R/ripple-xrp-logo-E97D62205B-seeklogo.com.png"
+                    src={RIPPLE}
                     alt="ripple"
                     className="h-8 w-8"
                   />Ripple
@@ -76,7 +79,7 @@ const Dashboard = () => {
               <div className=" border-blue-500 p-4 flex flex-col items-center gap-2">
                 <a href="#">
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt-zKsVKrLYyTYtD4Sa6di4AQcticu-O5FnFVSiSm3_Q&s"
+                    src={BITCOIN}
                     alt="bitcoin"
                     className="h-8 w-8"
                   />Bitcoin
@@ -86,7 +89,7 @@ const Dashboard = () => {
 
               <div className=" border-blue-500 p-4 flex flex-col items-center gap-2">
                 <a href="#"><img
-                  src="https://seeklogo.com/images/N/nft-logo-6202DDD5FF-seeklogo.com.png"
+                  src={NFT}
                   alt=""
                   className="h-8 w-8"
                 />NFT
@@ -96,10 +99,10 @@ const Dashboard = () => {
               <div className=" border-blue-500 p-4 flex flex-col items-center gap-2 justify-center">
                 <a href="#">
                   <img
-                    src="https://www.citypng.com/public/uploads/preview/download-gold-token-medal-seal-illustration-png-11639415418bl6dsuicrt.png?v=2023051122"
+                    src={TOKEN}
                     alt=""
                     className="h-8 w-8"
-                  />Token
+                  />Other Tokens
                 </a>
                 {/* <button onClick={""}>Token</button> */}
               </div>
@@ -108,10 +111,8 @@ const Dashboard = () => {
             </div>
           </main>
 
-
-
-          <h2><b>User Public ID:</b> {publicId}</h2>
-          <h3><b>Account Balance:</b> {accountBalance}</h3>
+          <h2><b>Your Public Address:</b> {publicId}</h2>
+          <h3><b>Balance:</b> {accountBalance} ETH</h3>
 
           <button
             type="button"
@@ -120,7 +121,7 @@ const Dashboard = () => {
               setSelectedOption("send");
             }}
           >
-            Send Crypto
+            <b>Transfer Ethereum</b>
           </button>
           <div className="trans">
             <ViewTransaction />

@@ -4,7 +4,6 @@ import axios from 'axios';
 import usersData from "../CreateAccountPage/usersData.json";
 import rot13_decrypt from '../../Services/encryption';
 import { AuthContext } from '../../Authorisation/AuthContext';
-import { ethers } from 'ethers';
 
 const SendCrypto = ({ onClose, setLoading }) => {
   const [senderAddress, setSenderAddress] = useState('');
@@ -101,32 +100,58 @@ const SendCrypto = ({ onClose, setLoading }) => {
         const transactionHash = responseBody.transaction_hash;
 
         // Prepare the data to send to the Python server
-        const dataToSend = {
-          transactionHash,
-          senderAddress,
-          destinationAddress,
-          amount,
-          timestamp: new Date().toISOString(),
+        const updateBalanceUrl = 'http://127.0.0.1:5000/api/update_balance'; // Replace this with the actual URL of your Python server
+      
+        // Send only the transaction amount to subtract from the balance
+        const amountToSend = {
+          amount: amount,
+          senderAddress: senderAddress,
         };
-
-        // Make a POST request to the Python server to store the data in transaction history
-        const pythonServerUrl = 'http://127.0.0.1:5000/api/store_transaction_data'; // Replace this with the actual URL of your Python server
+  
         axios
-          .post(pythonServerUrl, dataToSend)
+          .post(updateBalanceUrl, amountToSend)
           .then((response) => {
-            console.log('Data sent to Python server:', response.data);
-
-            // You can handle any additional logic after successfully sending the data
+            console.log('Balance updated successfully:', response.data);
+  
+            // After updating the balance, proceed to store the transaction details
+            const storeTransactionUrl = 'http://127.0.0.1:5000/api/store_transaction_data'; // Replace this with the actual URL of your Python server
+            
+            // Prepare the data to send to the Python server
+            const transactionData = {
+              transactionHash: transactionHash, 
+              senderAddress,
+              destinationAddress,
+              amount,
+              timestamp: new Date().toISOString(),
+            };
+            
+            axios
+              .post(storeTransactionUrl, transactionData)
+              .then((response) => {
+                console.log('Transaction data stored:', response.data);
+                
+                // You can handle any additional logic after successfully storing the transaction data
+              })
+              .catch((error) => {
+                console.error('Error storing transaction data:', error);
+              });
+            
           })
           .catch((error) => {
-            console.error('Error sending data to Python server:', error);
+            console.error('Error updating balance:', error);
           });
       })
       .catch((error) => {
         console.error('Error:', error);
       })
 
+      
+
   };
+
+ 
+
+ 
 
 
 

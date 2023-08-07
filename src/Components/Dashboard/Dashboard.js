@@ -121,7 +121,7 @@ const Dashboard = () => {
               setSelectedOption("send");
             }}
           >
-            <b>Transfer Ethereum</b>
+            <b>Transfer Ether</b>
           </button>
           <div className="trans">
             <ViewTransaction />

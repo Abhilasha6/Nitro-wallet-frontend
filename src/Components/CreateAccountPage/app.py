@@ -60,7 +60,7 @@ def store_user_data():
     # Additional validation checks can be added here
 
     data['privateKey'] = rot13_encrypt(data['privateKey'])
-    data['balance'] = 2.75
+    data['balance'] = 5.00
     
     user_data.append(data)
 
